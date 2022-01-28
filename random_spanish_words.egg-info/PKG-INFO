@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: random-spanish-words
+Version: 0.0.6
+Summary: Package for returnning random words in Spanish
+Home-page: https://github.com/ReydelCode/random_spanish_words
+Author: Reydel Romeu Alonso
+Author-email: reydelromeu@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# random_spanish_words
+python library
+
+
