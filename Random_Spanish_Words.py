@@ -143,9 +143,9 @@ class First:
 			elif pas_letter==True:
 				break
 		try:
-			if str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='Find_Word_By':
+			if str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='Word_By':
 				return choice(self.words_li)
-			elif str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='Find_List_By':
+			elif str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='List_By':
 				return self.words_li
 		except:
 			raise Exception('Error')
@@ -170,9 +170,9 @@ class Last:
 			if i[len(i)-1]==last or i[len(i)-1]==None:
 				self.words_li.append(i)
 		try:
-			if str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='Find_Word_By':
+			if str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='Word_By':
 				return choice(self.words_li)
-			elif str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='Find_List_By':
+			elif str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='List_By':
 				return self.words_li
 		except:
 			error=True
@@ -209,9 +209,9 @@ class These:
 			if pas_letter==True:
 				self.words_li.append(word)
 		try:
-			if str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='Find_Word_By':
+			if str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='Word_By':
 				return choice(self.words_li)
-			elif str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='Find_List_By':
+			elif str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='List_By':
 				return self.words_li
 		except:
 			error=True
@@ -289,9 +289,9 @@ class Times:
 				)<=kw['max']):
 					self.words_li.append(word)
 		try:
-			if str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='Find_Word_By':
+			if str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='Word_By':
 				return choice(self.words_li)
-			elif str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='Find_List_By':
+			elif str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='List_By':
 				return self.words_li
 		except:
 			Index_error=True
@@ -302,7 +302,7 @@ class Times:
 				raise Exception(f"Have not find word that contains between {kw['min']} and {kw['max']} times the letter '{char}'")
 			else:
 				raise Exception(f"Have not find word that contains {condit}imum {kw[condit]} times the letter '{char}'")
-class Most_Rep:
+class More_Repeated:
 	def __init__(self,Super):
 		self.Super=Super
 		self.words_li=[]
@@ -330,23 +330,23 @@ class Most_Rep:
 			if count_letter_li[i]==count_max and count_max!=0:
 				self.words_li.append(wordList[i])
 		try:
-			if str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='Find_Word_By':
+			if str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='Word_By':
 				return (choice(self.words_li),count_max)
-			elif str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='Find_List_By':
+			elif str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='List_By':
 				return self.words_li
 		except:
 			error=True
 		if error:
 			raise Exception(f"Have not find word that contains the letter '{mostRep}'")
 
-#instances of class Find_Word_By and Find_List_By
+#instances of class Word_By and List_By
 class Letter:
 	def __init__(self,Super):
 		self.First=lambda: First(Super)
 		self.Last=lambda: Last(Super)
 		self.These=lambda: These(Super)
 		self.Times=lambda: Times(Super)
-		self.Most_Rep=lambda: Most_Rep(Super)
+		self.More_Repeated=lambda: More_Repeated(Super)
 class Substring:
 	def __init__(self,Super):
 		self.Super=Super
@@ -357,9 +357,9 @@ class Substring:
 			if substr in word:
 				self.words_li.append(word)
 		try:
-			if str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='Find_Word_By':
+			if str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='Word_By':
 				return choice(self.words_li)
-			elif str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='Find_List_By':
+			elif str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='List_By':
 				return self.words_li
 		except:
 			error=True
@@ -371,7 +371,7 @@ class Len:
 		self.words_li=[]
 	def Run(self,**kw):
 		error=None
-		if str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='Find_List_By':
+		if str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='List_By':
 			try:
 				while kw['exact']>0:
 					self.words_li.append(choice(wordList))
@@ -379,7 +379,7 @@ class Len:
 				return self.words_li
 			except KeyError:
 				raise KeyError(f"For {self.Super.__class__}.Len().Run() argument must be 'exact'")
-		if str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='Find_Word_By':
+		if str(self.Super.__class__)[str(self.Super.__class__).rindex('.')+1:-2]=='Word_By':
 			if len(kw)==1:
 				if 'exact' in kw:
 					condit='exact'
@@ -429,21 +429,21 @@ class Len:
 					raise Exception(f"Have not find word that contains {condit}imum {kw[condit]} letters")		
 
 #instances of class Word
-class Find_Word_By:
+class Word_By:
 	def __init__(self):
 		self.Letter=lambda: Letter(self)
 		self.Substring=lambda: Substring(self)
 		self.Len=lambda: Len(self)
-class Find_List_By:
+class List_By:
 	def __init__(self):
 		self.Letter=lambda: Letter(self)
 		self.Substring=lambda: Substring(self)
 		self.Len=lambda: Len(self)		
 
-class Word:
+class Return:
 	def __init__(self):
-		self.Find_Word_By=lambda :Find_Word_By()
-		self.Find_List_By=lambda :Find_List_By()
+		self.Word_By=lambda :Word_By()
+		self.List_By=lambda :List_By()
 
 class Doc:
 	def __init__(self,*WordOrList,**kw):
@@ -460,10 +460,10 @@ class Doc:
 			if not self.lang:
 				if self.WordOrList.lower()=='word':
 					word_or_list=''
-					Find_By=f'Word().Find_{self.WordOrList.capitalize()}_By()'
+					Find_By=f'Return().{self.WordOrList.capitalize()}_By()'
 				elif self.WordOrList.lower()=='list':
 					word_or_list=' list'
-					Find_By=f'Word().Find_{self.WordOrList.capitalize()}_By()'
+					Find_By=f'Return().{self.WordOrList.capitalize()}_By()'
 				else:
 					raise Exception('Argument must be "word" or "list"')
 				info={
@@ -482,10 +482,10 @@ class Doc:
 			if self.lang=='es':
 				if self.WordOrList.lower()=='word':
 					word_or_list=' palabra'
-					Find_By=f'Word().Find_{self.WordOrList.capitalize()}_By()'
+					Find_By=f'Return().{self.WordOrList.capitalize()}_By()'
 				elif self.WordOrList.lower()=='list':
 					word_or_list=' lista de palabras'
-					Find_By=f'Word().Find_{self.WordOrList.capitalize()}_By()'
+					Find_By=f'Return().{self.WordOrList.capitalize()}_By()'
 				else:
 					raise Exception('Argument must be "word" or "list"')
 				info={
@@ -502,7 +502,7 @@ class Doc:
 		'mostRep':f'-devuelve una{word_or_list} que tenga mayor cantidad de veces la letra especificada\n'
 	}
 			Doc=f"\n\n\
-	Word():\n\
+	Return():\n\
 	    {Find_By}:\n\
 		{info['word']}\n\
 			{Find_By}.Len().Run(exact=,[min=,max=])\n\
@@ -519,7 +519,7 @@ class Doc:
 				{info['these']}\n\
 				{Find_By}.Letter().Times().Run(char,exact=,[min=,max=])\n\
 				{info['times']}\n\
-				{Find_By}.Letter().Most_Rep().Run(char)\n\
+				{Find_By}.Letter().More_Repeated().Run(char)\n\
 				{info['mostRep']}\n"
 		else:
 			if not self.lang:
@@ -527,3 +527,7 @@ class Doc:
 			if self.lang:
 				Doc='Esta libreria proporciona palabras o listas de palabras aleatorias. Pase "word" o "list" como argumento para obtener la respectiva documentacion. lang="es" para obtener la documentacion en español'
 		return Doc
+
+if __name__=="__main__":
+	print(Doc("list",lang="es"))
+	print(Return().Word_By().Letter().More_Repeated().Run('a'))
