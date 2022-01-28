@@ -1,2 +1,2 @@
-from .Random_Spanish_Words import *
+from .random_spanish_words import *
 
