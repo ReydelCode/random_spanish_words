@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+random_spanish_words/Random_Spanish_Words.py
+random_spanish_words/__init__.py
+random_spanish_words.egg-info/PKG-INFO
+random_spanish_words.egg-info/SOURCES.txt
+random_spanish_words.egg-info/dependency_links.txt
+random_spanish_words.egg-info/top_level.txt

@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setuptools.setup(
 	name="random_spanish_words",
-	version="0.00.2",
+	version="0.00.6",
 	author="Reydel Romeu Alonso",
 	author_email="reydelromeu@gmail.com",
 	description="Package for returnning random words in Spanish",
